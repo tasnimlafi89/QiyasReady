@@ -19,20 +19,27 @@
   --success: 160 84% 39%;
   --warning: 38 92% 50%;
   --radius: 0.75rem;
-  --font-sans: 'Inter', 'IBM Plex Sans Arabic', system-ui, sans-serif;
+  --font-sans: 'Tajawal', 'IBM Plex Sans Arabic', 'Inter', system-ui, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
-  --font-arabic: 'IBM Plex Sans Arabic', 'Inter', sans-serif;
+  --font-arabic: 'Tajawal', 'IBM Plex Sans Arabic', 'Inter', sans-serif;
+  --section-gap: 2.5rem;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  direction: rtl;
+  text-align: right;
+}
 
 body {
   font-family: var(--font-sans);
   background: hsl(var(--background));
   color: hsl(var(--foreground));
   min-height: 100vh;
+  direction: rtl;
+  text-align: right;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -158,6 +165,15 @@ body {
 
 /* ── RTL Support ───────────────────────────────────────── */
 [dir="rtl"] { font-family: var(--font-arabic); }
+[dir="rtl"] * { text-align: inherit; }
+[dir="rtl"] h1, [dir="rtl"] h2, [dir="rtl"] h3, [dir="rtl"] h4, [dir="rtl"] h5, [dir="rtl"] h6,
+[dir="rtl"] p, [dir="rtl"] span, [dir="rtl"] label, [dir="rtl"] li { text-align: right; }
+[dir="rtl"] .text-center { text-align: center; }
+
+/* ── Section Spacing ──────────────────────────────────── */
+.section-gap { margin-bottom: var(--section-gap); }
+.section-block { padding-top: 2.5rem; padding-bottom: 2.5rem; }
+.dashboard-grid { display: grid; gap: 2rem; }
 
 /* ── Badge Styles ──────────────────────────────────────── */
 .badge { padding: 0.25rem 0.75rem; border-radius: 999px; font-size: 0.75rem; font-weight: 600; display: inline-flex; align-items: center; gap: 0.25rem; }
@@ -168,8 +184,9 @@ body {
 
 /* ── Stat Card ─────────────────────────────────────────── */
 .stat-card {
-  padding: 1.25rem;
+  padding: 1.5rem;
   border-radius: var(--radius);
   background: linear-gradient(135deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%);
   border: 1px solid rgba(255,255,255,0.06);
+  text-align: right;
 }

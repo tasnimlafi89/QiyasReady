@@ -27,11 +27,11 @@ export default function AnalyticsPage() {
   }, [getToken]);
 
   return (
-    <motion.div initial="hidden" animate="visible" variants={stagger} className="space-y-6">
+    <motion.div initial="hidden" animate="visible" variants={stagger} className="space-y-10 text-right">
       <motion.div variants={fadeUp}><h1 className="text-2xl font-bold">التحليلات</h1><p className="text-gray-400 text-sm">تتبع تقدمك بالتفصيل</p></motion.div>
 
       {/* Overview Stats */}
-      <motion.div variants={fadeUp} className="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <motion.div variants={fadeUp} className="grid grid-cols-2 md:grid-cols-4 gap-6">
         {[
           { label: "إجمالي الاختبارات", value: data?.totalExams || 0, icon: Target, color: "text-purple-400" },
           { label: "متوسط الدرجات", value: `${data?.avgScore || 0}%`, icon: BarChart3, color: "text-emerald-400" },
@@ -65,7 +65,7 @@ export default function AnalyticsPage() {
       </motion.div>
 
       {/* Verbal vs Quantitative */}
-      <motion.div variants={fadeUp} className="grid md:grid-cols-2 gap-4">
+      <motion.div variants={fadeUp} className="grid md:grid-cols-2 gap-6">
         <div className="card-premium p-6">
           <h3 className="font-bold mb-4">📝 القسم اللفظي</h3>
           <div className="text-4xl font-black font-mono text-purple-400 mb-2">{data?.recentScores?.[0]?.verbal || 0}%</div>

@@ -213,7 +213,7 @@ export default function LandingPage() {
                 <div className="glass rounded-xl p-4 max-w-[80%]">
                   <p className="text-sm text-gray-300">لم أفهم كيف أحل سؤال التناظر اللفظي؟ 🤔</p>
                 </div>
-                <div className="glass rounded-xl p-4 max-w-[85%] mr-auto border-purple-500/20">
+                <div className="glass rounded-xl p-4 max-w-[85%] ml-auto border-purple-500/20">
                   <p className="text-sm text-gray-300">
                     <span className="text-purple-400 font-medium">🤖 QiyasReady AI:</span><br />
                     التناظر اللفظي يعتمد على إيجاد العلاقة بين زوج من الكلمات. مثلاً: كتاب:مكتبة كالعلاقة بين لوحة:متحف. 

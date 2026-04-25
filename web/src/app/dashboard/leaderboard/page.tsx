@@ -27,7 +27,7 @@ export default function LeaderboardPage() {
   const rankColors = ["text-yellow-400", "text-gray-300", "text-amber-600"];
 
   return (
-    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-6">
+    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-10 text-right">
       <div><h1 className="text-2xl font-bold">لوحة المتصدرين</h1><p className="text-gray-400 text-sm">تنافس مع الطلاب الآخرين</p></div>
 
       {userRank && (
@@ -39,7 +39,7 @@ export default function LeaderboardPage() {
 
       {/* Top 3 */}
       {leaderboard.length >= 3 && (
-        <div className="grid grid-cols-3 gap-4">
+        <div className="grid grid-cols-3 gap-6">
           {[1, 0, 2].map((idx) => {
             const p = leaderboard[idx];
             if (!p) return null;
@@ -74,7 +74,7 @@ export default function LeaderboardPage() {
               <div className="font-medium text-sm truncate">{p.name}</div>
               <div className="text-xs text-gray-500">المستوى {p.level} • {p.playerRank}</div>
             </div>
-            <div className="text-left">
+            <div className="text-right">
               <div className="font-bold font-mono text-sm text-purple-400">{p.xp.toLocaleString()} XP</div>
               {p.streak > 0 && <div className="text-xs text-orange-400 flex items-center gap-1"><Flame className="w-3 h-3" />{p.streak}</div>}
             </div>

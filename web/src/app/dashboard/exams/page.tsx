@@ -31,7 +31,7 @@ export default function ExamsPage() {
   const sectionLabels: any = { verbal: "لفظي", quantitative: "كمي", full: "شامل" };
 
   return (
-    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-6">
+    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-10 text-right">
       <div>
         <h1 className="text-2xl font-bold mb-1">الاختبارات</h1>
         <p className="text-gray-400 text-sm">اختر اختبار وابدأ التحضير</p>
@@ -47,15 +47,15 @@ export default function ExamsPage() {
       </div>
 
       {loading ? (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {[1,2,3,4].map(i => <div key={i} className="card-premium p-6 h-48 animate-pulse bg-white/3" />)}
         </div>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {filtered.map((exam: any, i: number) => (
             <motion.div key={exam._id} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.1 }} className="card-premium p-6 relative group">
               {exam.isPremium && (
-                <div className="absolute top-3 left-3 badge badge-gold"><Crown className="w-3 h-3" /> مميز</div>
+                <div className="absolute top-3 right-3 badge badge-gold"><Crown className="w-3 h-3" /> مميز</div>
               )}
               <div className="flex items-start justify-between mb-4">
                 <div>

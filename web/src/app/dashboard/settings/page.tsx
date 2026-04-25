@@ -16,7 +16,7 @@ export default function SettingsPage() {
   ];
 
   return (
-    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-6">
+    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-10 text-right">
       <div><h1 className="text-2xl font-bold">الإعدادات</h1></div>
 
       <div className="flex gap-2 flex-wrap">
@@ -38,7 +38,7 @@ export default function SettingsPage() {
       )}
 
       {activeTab === "subscription" && (
-        <div className="grid md:grid-cols-3 gap-4">
+        <div className="grid md:grid-cols-3 gap-6">
           {plans.map((plan, i) => (
             <div key={i} className={`card-premium p-6 relative ${plan.popular ? "border-purple-500/50 glow-purple" : ""}`}>
               {plan.popular && <div className="absolute -top-3 left-1/2 -translate-x-1/2 badge badge-purple"><Star className="w-3 h-3" /> الأكثر شعبية</div>}

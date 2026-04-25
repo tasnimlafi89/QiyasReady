@@ -94,7 +94,7 @@ export default function ExamSessionPage() {
   // ── Results View ──────────────────────────────
   if (submitted && results) {
     return (
-      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="max-w-2xl mx-auto space-y-6">
+      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="max-w-2xl mx-auto space-y-8 text-right">
         <div className="text-center">
           <div className="text-6xl mb-4">{results.score.percentage >= 80 ? "🎉" : results.score.percentage >= 60 ? "👍" : "💪"}</div>
           <h1 className="text-3xl font-bold mb-2">نتيجة الاختبار</h1>
@@ -105,7 +105,7 @@ export default function ExamSessionPage() {
             {results.score.correct} صحيح من {results.score.total} سؤال
           </p>
         </div>
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-2 gap-6">
           <div className="stat-card text-center"><div className="text-sm text-gray-400">لفظي</div><div className="text-2xl font-bold font-mono text-purple-400">{results.score.verbal}%</div></div>
           <div className="stat-card text-center"><div className="text-sm text-gray-400">كمي</div><div className="text-2xl font-bold font-mono text-emerald-400">{results.score.quantitative}%</div></div>
         </div>
@@ -137,7 +137,7 @@ export default function ExamSessionPage() {
   const answered = answers.filter((a: any) => a.selectedOption).length;
 
   return (
-    <div className="max-w-3xl mx-auto">
+    <div className="max-w-3xl mx-auto text-right">
       {/* Top bar */}
       <div className="flex items-center justify-between mb-6 glass rounded-xl p-3">
         <div className="flex items-center gap-3">

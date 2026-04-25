@@ -62,7 +62,7 @@ export default function StudyPlanPage() {
   }
 
   return (
-    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-6">
+    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-10 text-right">
       <div className="flex items-center justify-between">
         <div><h1 className="text-2xl font-bold">خطة الدراسة</h1><p className="text-gray-400 text-sm">خطة مخصصة بالذكاء الاصطناعي</p></div>
         <button onClick={handleGenerate} disabled={generating} className="btn-secondary text-sm">

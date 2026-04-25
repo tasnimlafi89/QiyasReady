@@ -71,7 +71,7 @@ export default function PracticePage() {
 
   if (mode === "select") {
     return (
-      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-6">
+      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-10 text-right">
         <div><h1 className="text-2xl font-bold mb-1">التدريب</h1><p className="text-gray-400 text-sm">اختر القسم والموضوع للتدريب</p></div>
         {score.total > 0 && (
           <div className="card-premium p-4 flex items-center gap-4">
@@ -91,7 +91,7 @@ export default function PracticePage() {
               <BookOpen className="w-5 h-5 text-purple-400" /> القسم {sectionNames[section._id] || section._id}
               <span className="text-xs text-gray-500 font-normal">({section.totalQuestions} سؤال)</span>
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
               {section.categories?.map((cat: any, ci: number) => (
                 <motion.button key={ci} whileHover={{ y: -2 }} onClick={() => startPractice(section._id, cat.name)}
                   className="card-premium p-4 text-right group cursor-pointer">
@@ -112,7 +112,7 @@ export default function PracticePage() {
   if (!question) return <div className="text-center py-20 text-gray-400">لا توجد أسئلة متاحة</div>;
 
   return (
-    <div className="max-w-2xl mx-auto space-y-4">
+    <div className="max-w-2xl mx-auto space-y-6 text-right">
       <div className="flex items-center justify-between">
         <button onClick={() => setMode("select")} className="btn-secondary text-sm">← رجوع</button>
         <div className="flex items-center gap-3">

@@ -42,8 +42,8 @@ export default function AITutorPage() {
   };
 
   return (
-    <div className="flex flex-col h-[calc(100vh-8rem)]">
-      <div className="flex items-center gap-3 mb-4">
+    <div className="flex flex-col h-[calc(100vh-8rem)] text-right">
+      <div className="flex items-center gap-3 mb-6">
         <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center">
           <Brain className="w-5 h-5 text-white" />
         </div>
@@ -51,7 +51,7 @@ export default function AITutorPage() {
       </div>
 
       {/* Messages */}
-      <div className="flex-1 overflow-y-auto space-y-4 mb-4 pr-2">
+      <div className="flex-1 overflow-y-auto space-y-4 mb-4 pl-2">
         {messages.length === 0 && (
           <div className="flex flex-col items-center justify-center h-full text-center">
             <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center mb-4 animate-pulse-glow">
@@ -59,7 +59,7 @@ export default function AITutorPage() {
             </div>
             <h2 className="text-xl font-bold mb-2">مرحباً! أنا مدرسك الذكي 🤖</h2>
             <p className="text-gray-400 text-sm mb-6 max-w-md">اسألني أي شيء عن اختبار قياس وسأساعدك في فهم المفاهيم وحل الأسئلة</p>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-2 w-full max-w-lg">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 w-full max-w-lg">
               {suggestions.map((s, i) => (
                 <button key={i} onClick={() => sendMessage(s)} className="btn-secondary text-sm text-right justify-start">
                   <Sparkles className="w-3.5 h-3.5 text-purple-400 shrink-0" /> {s}

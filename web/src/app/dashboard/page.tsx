@@ -41,7 +41,7 @@ export default function DashboardPage() {
   ];
 
   return (
-    <motion.div initial="hidden" animate="visible" variants={stagger} className="space-y-6">
+    <motion.div initial="hidden" animate="visible" variants={stagger} className="space-y-10 text-right">
       {/* ── Welcome Header ───────────────────────────── */}
       <motion.div variants={fadeUp} className="flex items-center justify-between">
         <div>
@@ -55,7 +55,7 @@ export default function DashboardPage() {
       </motion.div>
 
       {/* ── Stat Cards ───────────────────────────────── */}
-      <motion.div variants={fadeUp} className="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <motion.div variants={fadeUp} className="grid grid-cols-2 md:grid-cols-4 gap-6">
         {[
           { label: "المستوى", value: stats?.level || 1, icon: Star, color: "text-yellow-400", bg: "from-yellow-500/10 to-orange-500/10" },
           { label: "نقاط الخبرة", value: stats?.xp || 0, icon: Zap, color: "text-purple-400", bg: "from-purple-500/10 to-violet-500/10" },
@@ -76,7 +76,7 @@ export default function DashboardPage() {
       {/* ── Quick Actions ────────────────────────────── */}
       <motion.div variants={fadeUp}>
         <h2 className="text-lg font-bold mb-4">إجراءات سريعة</h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
           {quickActions.map((action, i) => (
             <Link key={i} href={action.href}>
               <motion.div whileHover={{ y: -4 }} className="card-premium p-5 text-center cursor-pointer group">
@@ -92,7 +92,7 @@ export default function DashboardPage() {
       </motion.div>
 
       {/* ── Performance Chart & Weaknesses ────────── */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         <motion.div variants={fadeUp} className="card-premium p-6">
           <div className="flex items-center justify-between mb-4">
             <h3 className="font-bold flex items-center gap-2"><BarChart3 className="w-5 h-5 text-purple-400" /> تقدم الأداء</h3>

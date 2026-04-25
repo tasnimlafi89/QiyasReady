@@ -97,7 +97,7 @@ export default function OnboardingPage() {
   ];
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-[hsl(240,10%,4%)] bg-grid relative px-6">
+    <div className="min-h-screen flex items-center justify-center bg-[hsl(240,10%,4%)] bg-grid relative px-6 text-right">
       <div className="absolute inset-0 bg-radial" />
       <div className="relative z-10 w-full">
         {/* Progress dots */}
