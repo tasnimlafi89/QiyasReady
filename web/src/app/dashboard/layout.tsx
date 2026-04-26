@@ -97,7 +97,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
 
         {/* User */}
         <div className="flex items-center gap-3 mt-4 p-3 rounded-xl bg-white/3">
-          <UserButton afterSignOutUrl="/" />
+          <UserButton />
           <div className="flex-1 min-w-0">
             <div className="text-sm font-medium truncate">{user?.fullName || "طالب"}</div>
             <div className="text-xs text-gray-500 truncate text-right" dir="ltr">{user?.primaryEmailAddress?.emailAddress}</div>
@@ -141,8 +141,8 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
       </AnimatePresence>
 
       {/* ── Main Content ─────────────────────────────── */}
-      <main className="flex-1 lg:pr-0 pt-14 lg:pt-0">
-        <div className="p-6 md:p-8 lg:p-10 max-w-7xl mx-auto">
+      <main className="flex-1 lg:pr-0 pt-20 lg:pt-8">
+        <div className="p-8 md:p-12 lg:p-16 max-w-7xl mx-auto">
           {children}
         </div>
       </main>

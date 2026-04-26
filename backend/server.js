@@ -17,6 +17,7 @@ import aiRoutes from './src/routes/ai.routes.js';
 import adminRoutes from './src/routes/admin.routes.js';
 import leaderboardRoutes from './src/routes/leaderboard.routes.js';
 import subscriptionRoutes from './src/routes/subscription.routes.js';
+import qiyasExamRoutes from './src/routes/qiyasExam.routes.js';
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -49,6 +50,7 @@ app.get('/api/health', (req, res) => {
 app.use('/api/auth', authRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/exams', examRoutes);
+app.use('/api/qiyas-exam', qiyasExamRoutes);
 app.use('/api/questions', questionRoutes);
 app.use('/api/study-plans', studyPlanRoutes);
 app.use('/api/analytics', analyticsRoutes);

@@ -77,7 +77,32 @@ router.put('/onboarding', requireAuthentication, async (req, res) => {
 
     const { grade, targetScore, examDate, studyHoursPerDay, fullNameAr, language } = req.body;
 
-    user.profile.grade = grade || user.profile.grade;
+    const gradeYear = parseInt(grade) || 12;
+    let baselineLevel = 10;
+    let edLevel = 'الصف الأول متوسط';
+
+    if (gradeYear >= 7 && gradeYear <= 9) {
+      baselineLevel = 10;
+      edLevel = gradeYear === 7 ? 'الصف الأول متوسط' : gradeYear === 8 ? 'الصف الثاني متوسط' : 'الصف الثالث متوسط';
+    } else if (gradeYear === 10) {
+      baselineLevel = 25;
+      edLevel = 'الصف الأول ثانوي';
+    } else if (gradeYear === 11) {
+      baselineLevel = 40;
+      edLevel = 'الصف الثاني ثانوي';
+    } else if (gradeYear === 12) {
+      baselineLevel = 55;
+      edLevel = 'الصف الثالث ثانوي';
+    } else {
+      baselineLevel = 60;
+      edLevel = 'خريج';
+    }
+
+    user.profile.educationLevel = edLevel;
+    user.profile.gradeYear = gradeYear;
+    user.profile.currentLevel = baselineLevel;
+    user.profile.tier = baselineLevel >= 60 ? 'متقدم' : baselineLevel >= 40 ? 'متوسط' : 'مبتدئ';
+
     user.profile.targetScore = targetScore || user.profile.targetScore;
     user.profile.examDate = examDate || user.profile.examDate;
     user.profile.studyHoursPerDay = studyHoursPerDay || user.profile.studyHoursPerDay;

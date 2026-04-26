@@ -12,17 +12,18 @@ export default function StudyPlanPage() {
   const [generating, setGenerating] = useState(false);
   const [activeWeek, setActiveWeek] = useState(0);
 
-  const loadPlan = async () => {
-    try {
-      const token = await getToken();
-      if (token) setAuthToken(token);
-      const res = await getStudyPlan();
-      setPlan(res.data.plan);
-    } catch (e) { console.error(e); }
-    finally { setLoading(false); }
-  };
-
-  useEffect(() => { loadPlan(); }, [getToken]);
+  useEffect(() => {
+    const load = async () => {
+      try {
+        const token = await getToken();
+        if (token) setAuthToken(token);
+        const res = await getStudyPlan();
+        setPlan(res.data.plan);
+      } catch (e) { console.error(e); }
+      finally { setLoading(false); }
+    };
+    load();
+  }, [getToken]);
 
   const handleGenerate = async () => {
     setGenerating(true);

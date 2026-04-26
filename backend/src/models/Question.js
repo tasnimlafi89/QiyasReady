@@ -1,66 +1,28 @@
 import mongoose from 'mongoose';
 
 const questionSchema = new mongoose.Schema({
-  section: { 
+  text: { type: String, required: true },
+  options: {
+    A: { type: String, required: true },
+    B: { type: String, required: true },
+    C: { type: String, required: true },
+    D: { type: String, required: true }
+  },
+  correctAnswer: { type: String, enum: ['A', 'B', 'C', 'D'], required: true },
+  topic: { 
     type: String, 
-    required: true, 
-    enum: ['verbal', 'quantitative'],
-    index: true,
+    enum: ['التناظر اللفظي', 'إكمال الجمل', 'الاستيعاب المقروء', 'الاستدلال الكمي', 'الهندسة والجبر'],
+    required: true
   },
-  category: { 
-    type: String, 
-    required: true,
-    index: true,
-  },
-  subcategory: { type: String, default: '' },
-  
-  // IRT Parameters (Item Response Theory - 3PL Model)
-  difficulty: { type: Number, default: 0, min: -3, max: 3 },      // b parameter
-  discrimination: { type: Number, default: 1, min: 0.5, max: 2.5 }, // a parameter
-  guessing: { type: Number, default: 0.2, min: 0, max: 0.35 },     // c parameter
-
-  content: {
-    textAr: { type: String, required: true },
-    textEn: { type: String, default: '' },
-    image: { type: String, default: '' },
-    options: [{
-      id: { type: String, required: true },
-      textAr: { type: String, required: true },
-      textEn: { type: String, default: '' },
-    }],
-    correctAnswer: { type: String, required: true },
-    explanation: {
-      textAr: { type: String, default: '' },
-      textEn: { type: String, default: '' },
-    },
-  },
-
-  metadata: {
-    timesAnswered: { type: Number, default: 0 },
-    timesCorrect: { type: Number, default: 0 },
-    avgTimeSpent: { type: Number, default: 0 },
-    tags: [{ type: String }],
-    source: { type: String, default: '' },
-    year: { type: Number },
-  },
-
-  isActive: { type: Boolean, default: true },
-  isPremium: { type: Boolean, default: false },
-  createdBy: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+  difficulty: { type: Number, enum: [1, 2, 3], required: true }, // 1=easy, 2=medium, 3=hard
+  gradeLevel: [{ type: Number }], // e.g. [10, 11, 12]
+  explanation: { type: String, required: true },
+  timeLimit: { type: Number, default: 60 } // fixed at 60s per question
 }, {
-  timestamps: true,
+  timestamps: true
 });
 
-// Indexes
-questionSchema.index({ section: 1, category: 1, difficulty: 1 });
-questionSchema.index({ isActive: 1, isPremium: 1 });
-
-// Virtual: success rate
-questionSchema.virtual('successRate').get(function() {
-  if (this.metadata.timesAnswered === 0) return 0;
-  return Math.round((this.metadata.timesCorrect / this.metadata.timesAnswered) * 100);
-});
-
-questionSchema.set('toJSON', { virtuals: true });
+// Indexes for fast generation
+questionSchema.index({ topic: 1, difficulty: 1, gradeLevel: 1 });
 
 export default mongoose.model('Question', questionSchema);

@@ -9,7 +9,7 @@ export default function SignInPage() {
           <h1 className="text-3xl font-bold gradient-text mb-2">مرحباً بعودتك</h1>
           <p className="text-gray-400">سجل دخولك لمتابعة رحلتك</p>
         </div>
-        <SignIn afterSignInUrl="/dashboard" appearance={{ elements: { rootBox: "mx-auto", card: "bg-[#12121a] border border-white/10 shadow-2xl" } }} />
+        <SignIn fallbackRedirectUrl="/dashboard" appearance={{ elements: { rootBox: "mx-auto", card: "bg-[#12121a] border border-white/10 shadow-2xl" } }} />
       </div>
     </div>
   );

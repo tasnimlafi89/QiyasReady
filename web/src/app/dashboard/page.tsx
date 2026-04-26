@@ -34,7 +34,7 @@ export default function DashboardPage() {
   }, [getToken]);
 
   const quickActions = [
-    { href: "/dashboard/exams", label: "اختبار محاكاة", icon: Target, color: "from-purple-500 to-violet-600", desc: "ابدأ اختبار كامل" },
+    { href: "/exam/new", label: "اختبار محاكاة", icon: Target, color: "from-purple-500 to-violet-600", desc: "ابدأ اختبار 100 سؤال" },
     { href: "/dashboard/practice", label: "تدريب سريع", icon: BookOpen, color: "from-emerald-500 to-teal-600", desc: "تدرب على أسئلة" },
     { href: "/dashboard/ai-tutor", label: "المدرس الذكي", icon: Brain, color: "from-blue-500 to-cyan-600", desc: "اسأل الذكاء الاصطناعي" },
     { href: "/dashboard/study-plan", label: "خطة الدراسة", icon: Clock, color: "from-orange-500 to-amber-600", desc: "خطتك اليومية" },

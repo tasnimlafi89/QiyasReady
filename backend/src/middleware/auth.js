@@ -6,7 +6,7 @@ export const clerkAuth = clerkMiddleware();
 
 // Require authentication and attach user to request
 export const requireAuthentication = [
-  requireAuth(),
+  clerkMiddleware(),
   async (req, res, next) => {
     try {
       const { userId } = getAuth(req);

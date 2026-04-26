@@ -11,14 +11,21 @@ const userSchema = new mongoose.Schema({
 
   // Student Profile
   profile: {
-    grade: { type: String, default: '' },
+    educationLevel: { type: String, default: '' },
+    gradeYear: { type: Number, default: 12 },
+    currentLevel: { type: Number, default: 0 },
+    tier: { type: String, default: 'مبتدئ' },
+    examCount: { type: Number, default: 0 },
+    topicScores: { type: mongoose.Schema.Types.Mixed, default: {} },
+    examHistory: [{ type: mongoose.Schema.Types.ObjectId, ref: 'ExamSession' }],
+    weakTopics: [{ type: String }],
+    bestScore: { type: Number, default: 0 },
+    averageScore: { type: Number, default: 0 },
+    
+    // Legacy fields
     targetScore: { type: Number, default: 80 },
     examDate: { type: Date },
     studyHoursPerDay: { type: Number, default: 2 },
-    weakAreas: [{ type: String }],
-    strongAreas: [{ type: String }],
-    abilityLevel: { type: Number, default: 0 }, // IRT theta: -3 to +3
-    diagnosticCompleted: { type: Boolean, default: false },
   },
 
   // Gamification

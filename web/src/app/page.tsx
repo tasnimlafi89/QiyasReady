@@ -18,7 +18,7 @@ export default function LandingPage() {
     <div className="min-h-screen bg-[hsl(240,10%,4%)] overflow-hidden" style={{ margin: '0 auto' }}>
       {/* ── Navbar ────────────────────────────────────── */}
       <nav className="fixed top-0 w-full z-50 glass">
-        <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-8 md:px-16 lg:px-24 h-20 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2">
             <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-purple-500 to-emerald-500 flex items-center justify-center">
               <Target className="w-5 h-5 text-white" />
@@ -48,7 +48,7 @@ export default function LandingPage() {
       </nav>
 
       {/* ── Hero Section ─────────────────────────────── */}
-      <section className="relative pt-32 pb-20 px-6">
+      <section className="relative pt-48 pb-24 px-8 md:px-16 lg:px-24">
         <div className="absolute inset-0 bg-radial" />
         <div className="absolute inset-0 bg-grid opacity-40" />
         
@@ -153,7 +153,7 @@ export default function LandingPage() {
       </section>
 
       {/* ── Features Section ─────────────────────────── */}
-      <section id="features" className="py-24 px-6">
+      <section id="features" className="py-24 px-8 md:px-16 lg:px-24">
         <div className="max-w-6xl mx-auto">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="text-center mb-16">
             <motion.h2 variants={fadeUp} className="text-4xl md:text-5xl font-bold mb-4">
@@ -189,7 +189,7 @@ export default function LandingPage() {
       </section>
 
       {/* ── AI Section ───────────────────────────────── */}
-      <section id="ai" className="py-24 px-6 relative">
+      <section id="ai" className="py-24 px-8 md:px-16 lg:px-24 relative">
         <div className="absolute inset-0 bg-radial opacity-50" />
         <div className="max-w-6xl mx-auto relative">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="text-center mb-16">
@@ -244,7 +244,7 @@ export default function LandingPage() {
       </section>
 
       {/* ── Pricing Section ──────────────────────────── */}
-      <section id="pricing" className="py-24 px-6">
+      <section id="pricing" className="py-24 px-8 md:px-16 lg:px-24">
         <div className="max-w-5xl mx-auto">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="text-center mb-16">
             <motion.h2 variants={fadeUp} className="text-4xl md:text-5xl font-bold mb-4">
@@ -286,7 +286,7 @@ export default function LandingPage() {
       </section>
 
       {/* ── CTA Section ──────────────────────────────── */}
-      <section className="py-24 px-6">
+      <section className="py-24 px-8 md:px-16 lg:px-24">
         <div className="max-w-3xl mx-auto text-center">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger}>
             <motion.h2 variants={fadeUp} className="text-4xl md:text-5xl font-bold mb-6">
@@ -305,7 +305,7 @@ export default function LandingPage() {
       </section>
 
       {/* ── Footer ───────────────────────────────────── */}
-      <footer className="border-t border-white/5 py-12 px-6">
+      <footer className="border-t border-white/5 py-12 px-8 md:px-16 lg:px-24">
         <div className="max-w-6xl mx-auto flex flex-col items-center gap-4">
           <div className="flex items-center gap-2">
             <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-purple-500 to-emerald-500 flex items-center justify-center">
