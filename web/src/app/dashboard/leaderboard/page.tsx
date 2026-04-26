@@ -27,11 +27,11 @@ export default function LeaderboardPage() {
   const rankColors = ["text-yellow-400", "text-gray-300", "text-amber-600"];
 
   return (
-    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-10 text-right">
+    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-10 text-center">
       <div><h1 className="text-2xl font-bold">لوحة المتصدرين</h1><p className="text-gray-400 text-sm">تنافس مع الطلاب الآخرين</p></div>
 
       {userRank && (
-        <div className="card-premium p-4 border-purple-500/20 flex items-center gap-3">
+        <div className="card-premium p-4 border-purple-500/20 flex items-center justify-center gap-3">
           <Trophy className="w-6 h-6 text-purple-400" />
           <span className="font-bold">ترتيبك الحالي: <span className="gradient-text font-mono text-xl">#{userRank}</span></span>
         </div>
@@ -67,14 +67,14 @@ export default function LeaderboardPage() {
       <div className="card-premium divide-y divide-white/5">
         {leaderboard.slice(3).map((p: any, i: number) => (
           <motion.div key={i} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: i * 0.03 }}
-            className="flex items-center gap-4 p-4 hover:bg-white/3 transition">
+            className="flex flex-col items-center gap-2 p-4 hover:bg-white/3 transition">
             <span className="w-8 text-center font-mono text-sm text-gray-500">{p.rank}</span>
             <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center font-bold text-sm">{p.name?.charAt(0)}</div>
             <div className="flex-1 min-w-0">
               <div className="font-medium text-sm truncate">{p.name}</div>
               <div className="text-xs text-gray-500">المستوى {p.level} • {p.playerRank}</div>
             </div>
-            <div className="text-right">
+            <div className="text-center">
               <div className="font-bold font-mono text-sm text-purple-400">{p.xp.toLocaleString()} XP</div>
               {p.streak > 0 && <div className="text-xs text-orange-400 flex items-center gap-1"><Flame className="w-3 h-3" />{p.streak}</div>}
             </div>

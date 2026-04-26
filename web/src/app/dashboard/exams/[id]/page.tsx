@@ -94,7 +94,7 @@ export default function ExamSessionPage() {
   // ── Results View ──────────────────────────────
   if (submitted && results) {
     return (
-      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="max-w-2xl mx-auto space-y-8 text-right">
+      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="max-w-2xl mx-auto space-y-8 text-center">
         <div className="text-center">
           <div className="text-6xl mb-4">{results.score.percentage >= 80 ? "🎉" : results.score.percentage >= 60 ? "👍" : "💪"}</div>
           <h1 className="text-3xl font-bold mb-2">نتيجة الاختبار</h1>
@@ -137,7 +137,7 @@ export default function ExamSessionPage() {
   const answered = answers.filter((a: any) => a.selectedOption).length;
 
   return (
-    <div className="max-w-3xl mx-auto text-right">
+    <div className="max-w-3xl mx-auto text-center">
       {/* Top bar */}
       <div className="flex items-center justify-between mb-6 glass rounded-xl p-3">
         <div className="flex items-center gap-3">
@@ -163,7 +163,7 @@ export default function ExamSessionPage() {
         <div className="space-y-3">
           {question.content.options.map((opt: any) => (
             <button key={opt.id} onClick={() => selectAnswer(opt.id)}
-              className={`w-full text-right p-4 rounded-xl border transition-all flex items-center gap-3 ${
+              className={`w-full text-center p-4 rounded-xl border transition-all flex items-center gap-3 ${
                 answers[currentQ]?.selectedOption === opt.id
                   ? "border-purple-500 bg-purple-500/10 text-white"
                   : "border-white/5 bg-white/3 text-gray-300 hover:border-white/20 hover:bg-white/5"

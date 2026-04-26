@@ -15,7 +15,7 @@ export default function LandingPage() {
   const { isSignedIn } = useAuth();
 
   return (
-    <div className="min-h-screen bg-[hsl(240,10%,4%)] overflow-hidden">
+    <div className="min-h-screen bg-[hsl(240,10%,4%)] overflow-hidden" style={{ margin: '0 auto' }}>
       {/* ── Navbar ────────────────────────────────────── */}
       <nav className="fixed top-0 w-full z-50 glass">
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
@@ -176,8 +176,8 @@ export default function LandingPage() {
               { icon: Zap, title: 'توقع النتيجة', desc: 'الذكاء الاصطناعي يتوقع نتيجتك المحتملة بناءً على أدائك', color: 'from-pink-500 to-rose-600' },
               { icon: GraduationCap, title: 'محتوى شامل', desc: 'أسئلة تغطي جميع أقسام اختبار قياس: لفظي وكمي', color: 'from-teal-500 to-green-600' },
             ].map((feature, i) => (
-              <motion.div key={i} variants={fadeUp} className="card-premium p-6 group">
-                <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${feature.color} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
+              <motion.div key={i} variants={fadeUp} className="card-premium p-6 group text-center">
+                <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${feature.color} flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform`}>
                   <feature.icon className="w-6 h-6 text-white" />
                 </div>
                 <h3 className="text-lg font-bold mb-2">{feature.title}</h3>
@@ -230,7 +230,7 @@ export default function LandingPage() {
                 { title: 'توقع النتيجة', desc: 'تقدير ذكي لنتيجتك في الاختبار الحقيقي بناءً على بياناتك', icon: '🎯' },
                 { title: 'تحفيز مخصص', desc: 'رسائل تحفيزية مخصصة بناءً على تقدمك ونشاطك', icon: '💪' },
               ].map((item, i) => (
-                <div key={i} className="card-premium p-5 flex items-start gap-4">
+                <div key={i} className="card-premium p-5 flex flex-col items-center gap-3 text-center">
                   <span className="text-2xl">{item.icon}</span>
                   <div>
                     <h4 className="font-bold mb-1">{item.title}</h4>
@@ -265,13 +265,13 @@ export default function LandingPage() {
                   </div>
                 )}
                 <h3 className="text-xl font-bold mb-2">{plan.name}</h3>
-                <div className="flex items-baseline gap-1 mb-6">
+                <div className="flex items-baseline gap-1 mb-6 justify-center">
                   <span className="text-4xl font-black font-mono gradient-text">{plan.price}</span>
                   <span className="text-gray-500 text-sm">ريال/شهر</span>
                 </div>
                 <ul className="space-y-3 mb-8">
                   {plan.features.map((f, j) => (
-                    <li key={j} className="flex items-center gap-2 text-sm text-gray-300">
+                    <li key={j} className="flex items-center gap-2 text-sm text-gray-300 justify-center">
                       <Check className="w-4 h-4 text-emerald-500 shrink-0" /> {f}
                     </li>
                   ))}
@@ -306,7 +306,7 @@ export default function LandingPage() {
 
       {/* ── Footer ───────────────────────────────────── */}
       <footer className="border-t border-white/5 py-12 px-6">
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="max-w-6xl mx-auto flex flex-col items-center gap-4">
           <div className="flex items-center gap-2">
             <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-purple-500 to-emerald-500 flex items-center justify-center">
               <Target className="w-4 h-4 text-white" />

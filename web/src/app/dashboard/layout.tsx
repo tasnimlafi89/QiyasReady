@@ -100,7 +100,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
           <UserButton afterSignOutUrl="/" />
           <div className="flex-1 min-w-0">
             <div className="text-sm font-medium truncate">{user?.fullName || "طالب"}</div>
-            <div className="text-xs text-gray-500 truncate">{user?.primaryEmailAddress?.emailAddress}</div>
+            <div className="text-xs text-gray-500 truncate text-right" dir="ltr">{user?.primaryEmailAddress?.emailAddress}</div>
           </div>
         </div>
       </aside>

@@ -31,14 +31,14 @@ export default function ExamsPage() {
   const sectionLabels: any = { verbal: "لفظي", quantitative: "كمي", full: "شامل" };
 
   return (
-    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-10 text-right">
+    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-10 text-center">
       <div>
         <h1 className="text-2xl font-bold mb-1">الاختبارات</h1>
         <p className="text-gray-400 text-sm">اختر اختبار وابدأ التحضير</p>
       </div>
 
       {/* Filters */}
-      <div className="flex gap-2 flex-wrap">
+      <div className="flex gap-2 flex-wrap justify-center">
         {[{ key: "all", label: "الكل" }, { key: "diagnostic", label: "تشخيصي" }, { key: "mock", label: "محاكاة" }].map(f => (
           <button key={f.key} onClick={() => setFilter(f.key)} className={`px-4 py-2 rounded-xl text-sm transition ${filter === f.key ? "bg-purple-500/20 text-purple-400 border border-purple-500/30" : "bg-white/5 text-gray-400 border border-white/5 hover:bg-white/10"}`}>
             {f.label}
@@ -57,17 +57,15 @@ export default function ExamsPage() {
               {exam.isPremium && (
                 <div className="absolute top-3 right-3 badge badge-gold"><Crown className="w-3 h-3" /> مميز</div>
               )}
-              <div className="flex items-start justify-between mb-4">
-                <div>
-                  <span className={`badge ${typeColors[exam.type] || "badge-purple"} text-xs mb-2`}>{typeLabels[exam.type] || exam.type}</span>
-                  <h3 className="text-lg font-bold mt-1">{exam.title?.ar || exam.title?.en}</h3>
-                  <p className="text-sm text-gray-500 mt-1">{exam.description?.ar || ""}</p>
-                </div>
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500/20 to-emerald-500/20 flex items-center justify-center">
+              <div className="flex flex-col items-center mb-4">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500/20 to-emerald-500/20 flex items-center justify-center mb-3">
                   <Target className="w-6 h-6 text-purple-400" />
                 </div>
+                <span className={`badge ${typeColors[exam.type] || "badge-purple"} text-xs mb-2`}>{typeLabels[exam.type] || exam.type}</span>
+                <h3 className="text-lg font-bold mt-1">{exam.title?.ar || exam.title?.en}</h3>
+                <p className="text-sm text-gray-500 mt-1">{exam.description?.ar || ""}</p>
               </div>
-              <div className="flex items-center gap-4 text-xs text-gray-500 mb-4">
+              <div className="flex items-center justify-center gap-4 text-xs text-gray-500 mb-4">
                 <span className="flex items-center gap-1"><BookOpen className="w-3.5 h-3.5" /> {exam.config?.totalQuestions} سؤال</span>
                 <span className="flex items-center gap-1"><Clock className="w-3.5 h-3.5" /> {exam.config?.duration} دقيقة</span>
                 <span className="badge badge-purple text-xs">{sectionLabels[exam.section]}</span>

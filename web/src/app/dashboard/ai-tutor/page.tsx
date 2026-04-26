@@ -42,8 +42,8 @@ export default function AITutorPage() {
   };
 
   return (
-    <div className="flex flex-col h-[calc(100vh-8rem)] text-right">
-      <div className="flex items-center gap-3 mb-6">
+    <div className="flex flex-col h-[calc(100vh-8rem)] text-center">
+      <div className="flex items-center justify-center gap-3 mb-6">
         <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center">
           <Brain className="w-5 h-5 text-white" />
         </div>
@@ -61,7 +61,7 @@ export default function AITutorPage() {
             <p className="text-gray-400 text-sm mb-6 max-w-md">اسألني أي شيء عن اختبار قياس وسأساعدك في فهم المفاهيم وحل الأسئلة</p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3 w-full max-w-lg">
               {suggestions.map((s, i) => (
-                <button key={i} onClick={() => sendMessage(s)} className="btn-secondary text-sm text-right justify-start">
+                <button key={i} onClick={() => sendMessage(s)} className="btn-secondary text-sm text-center justify-start">
                   <Sparkles className="w-3.5 h-3.5 text-purple-400 shrink-0" /> {s}
                 </button>
               ))}

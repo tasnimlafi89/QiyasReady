@@ -71,7 +71,7 @@ export default function PracticePage() {
 
   if (mode === "select") {
     return (
-      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-10 text-right">
+      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-10 text-center">
         <div><h1 className="text-2xl font-bold mb-1">التدريب</h1><p className="text-gray-400 text-sm">اختر القسم والموضوع للتدريب</p></div>
         {score.total > 0 && (
           <div className="card-premium p-4 flex items-center gap-4">
@@ -87,14 +87,14 @@ export default function PracticePage() {
         </button>
         {categories.map((section: any, si: number) => (
           <div key={si}>
-            <h2 className="text-lg font-bold mb-3 flex items-center gap-2">
+            <h2 className="text-lg font-bold mb-3 flex items-center justify-center gap-2">
               <BookOpen className="w-5 h-5 text-purple-400" /> القسم {sectionNames[section._id] || section._id}
               <span className="text-xs text-gray-500 font-normal">({section.totalQuestions} سؤال)</span>
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
               {section.categories?.map((cat: any, ci: number) => (
                 <motion.button key={ci} whileHover={{ y: -2 }} onClick={() => startPractice(section._id, cat.name)}
-                  className="card-premium p-4 text-right group cursor-pointer">
+                  className="card-premium p-4 text-center group cursor-pointer">
                   <div className="font-semibold text-sm mb-1">{cat.name}</div>
                   <div className="text-xs text-gray-500">{cat.count} سؤال</div>
                   <div className="progress-bar mt-2"><div className="progress-bar-fill" style={{ width: "0%" }} /></div>
@@ -112,7 +112,7 @@ export default function PracticePage() {
   if (!question) return <div className="text-center py-20 text-gray-400">لا توجد أسئلة متاحة</div>;
 
   return (
-    <div className="max-w-2xl mx-auto space-y-6 text-right">
+    <div className="max-w-2xl mx-auto space-y-6 text-center">
       <div className="flex items-center justify-between">
         <button onClick={() => setMode("select")} className="btn-secondary text-sm">← رجوع</button>
         <div className="flex items-center gap-3">
@@ -134,7 +134,7 @@ export default function PracticePage() {
             }
             return (
               <button key={opt.id} onClick={() => handleAnswer(opt.id)} disabled={!!result}
-                className={`w-full text-right p-4 rounded-xl border transition-all flex items-center gap-3 ${cls}`}>
+                className={`w-full text-center p-4 rounded-xl border transition-all flex items-center gap-3 ${cls}`}>
                 <span className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center text-sm font-bold shrink-0">{opt.id}</span>
                 <span className="flex-1">{opt.textAr}</span>
                 {result && opt.id === result.correctAnswer && <CheckCircle className="w-5 h-5 text-emerald-400" />}

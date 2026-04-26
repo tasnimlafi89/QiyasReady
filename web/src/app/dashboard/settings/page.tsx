@@ -16,10 +16,10 @@ export default function SettingsPage() {
   ];
 
   return (
-    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-10 text-right">
+    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-10 text-center">
       <div><h1 className="text-2xl font-bold">الإعدادات</h1></div>
 
-      <div className="flex gap-2 flex-wrap">
+      <div className="flex gap-2 flex-wrap justify-center">
         {[
           { key: "profile", label: "الملف الشخصي", icon: Settings },
           { key: "subscription", label: "الاشتراك", icon: Crown },
@@ -43,7 +43,7 @@ export default function SettingsPage() {
             <div key={i} className={`card-premium p-6 relative ${plan.popular ? "border-purple-500/50 glow-purple" : ""}`}>
               {plan.popular && <div className="absolute -top-3 left-1/2 -translate-x-1/2 badge badge-purple"><Star className="w-3 h-3" /> الأكثر شعبية</div>}
               <h3 className="text-lg font-bold">{plan.name}</h3>
-              <div className="flex items-baseline gap-1 my-3">
+              <div className="flex items-baseline gap-1 my-3 justify-center">
                 <span className="text-3xl font-black font-mono gradient-text">{plan.price}</span>
                 <span className="text-gray-500 text-sm">ريال/شهر</span>
               </div>

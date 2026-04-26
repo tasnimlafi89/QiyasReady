@@ -41,7 +41,7 @@ export default function OnboardingPage() {
     </motion.div>,
     // Step 1: Name & Grade
     <motion.div key="info" initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} className="max-w-md mx-auto">
-      <GraduationCap className="w-12 h-12 text-purple-400 mb-4" />
+      <div className="flex justify-center mb-4"><GraduationCap className="w-12 h-12 text-purple-400" /></div>
       <h2 className="text-2xl font-bold mb-6">معلوماتك الأساسية</h2>
       <div className="space-y-4">
         <div>
@@ -57,14 +57,14 @@ export default function OnboardingPage() {
           </select>
         </div>
       </div>
-      <div className="flex gap-3 mt-8">
+      <div className="flex gap-3 mt-8 justify-center">
         <button onClick={() => setStep(0)} className="btn-secondary flex-1">رجوع</button>
         <button onClick={() => setStep(2)} className="btn-primary flex-1">التالي</button>
       </div>
     </motion.div>,
     // Step 2: Goals
     <motion.div key="goals" initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} className="max-w-md mx-auto">
-      <Target className="w-12 h-12 text-emerald-400 mb-4" />
+      <div className="flex justify-center mb-4"><Target className="w-12 h-12 text-emerald-400" /></div>
       <h2 className="text-2xl font-bold mb-6">أهدافك</h2>
       <div className="space-y-4">
         <div>
@@ -87,7 +87,7 @@ export default function OnboardingPage() {
           </select>
         </div>
       </div>
-      <div className="flex gap-3 mt-8">
+      <div className="flex gap-3 mt-8 justify-center">
         <button onClick={() => setStep(1)} className="btn-secondary flex-1">رجوع</button>
         <button onClick={handleComplete} disabled={loading} className="btn-primary flex-1">
           {loading ? "جاري الحفظ..." : <>ابدأ التعلم <Rocket className="w-4 h-4" /></>}
@@ -97,7 +97,7 @@ export default function OnboardingPage() {
   ];
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-[hsl(240,10%,4%)] bg-grid relative px-6 text-right">
+    <div className="min-h-screen flex items-center justify-center bg-[hsl(240,10%,4%)] bg-grid relative px-6 text-center">
       <div className="absolute inset-0 bg-radial" />
       <div className="relative z-10 w-full">
         {/* Progress dots */}

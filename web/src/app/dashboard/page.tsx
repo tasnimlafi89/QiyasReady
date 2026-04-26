@@ -41,14 +41,12 @@ export default function DashboardPage() {
   ];
 
   return (
-    <motion.div initial="hidden" animate="visible" variants={stagger} className="space-y-10 text-right">
+    <motion.div initial="hidden" animate="visible" variants={stagger} className="space-y-10 text-center">
       {/* ── Welcome Header ───────────────────────────── */}
-      <motion.div variants={fadeUp} className="flex items-center justify-between">
-        <div>
-          <h1 className="text-2xl md:text-3xl font-bold">مرحباً! 👋</h1>
-          <p className="text-gray-400 mt-1">لنكمل رحلتك نحو التميز في قياس</p>
-        </div>
-        <div className="hidden md:flex items-center gap-2 badge badge-purple">
+      <motion.div variants={fadeUp} className="flex flex-col items-center gap-2">
+        <h1 className="text-2xl md:text-3xl font-bold">مرحباً! 👋</h1>
+        <p className="text-gray-400 mt-1">لنكمل رحلتك نحو التميز في قياس</p>
+        <div className="flex items-center gap-2 badge badge-purple mt-2">
           <Flame className="w-4 h-4" />
           <span className="font-mono">{stats?.streak || 0} يوم متتالي</span>
         </div>
@@ -62,11 +60,8 @@ export default function DashboardPage() {
           { label: "الدقة", value: `${stats?.accuracy || 0}%`, icon: Target, color: "text-emerald-400", bg: "from-emerald-500/10 to-teal-500/10" },
           { label: "الاختبارات", value: stats?.totalExams || 0, icon: Trophy, color: "text-blue-400", bg: "from-blue-500/10 to-cyan-500/10" },
         ].map((stat, i) => (
-          <motion.div key={i} variants={fadeUp} className={`stat-card bg-gradient-to-br ${stat.bg} border-white/5`}>
-            <div className="flex items-center justify-between mb-2">
-              <stat.icon className={`w-5 h-5 ${stat.color}`} />
-              <TrendingUp className="w-3.5 h-3.5 text-emerald-500" />
-            </div>
+          <motion.div key={i} variants={fadeUp} className={`stat-card bg-gradient-to-br ${stat.bg} border-white/5 text-center`}>
+            <stat.icon className={`w-6 h-6 ${stat.color} mx-auto mb-2`} />
             <div className={`text-2xl font-bold font-mono ${stat.color}`}>{stat.value}</div>
             <div className="text-xs text-gray-500 mt-1">{stat.label}</div>
           </motion.div>
@@ -94,8 +89,9 @@ export default function DashboardPage() {
       {/* ── Performance Chart & Weaknesses ────────── */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         <motion.div variants={fadeUp} className="card-premium p-6">
-          <div className="flex items-center justify-between mb-4">
-            <h3 className="font-bold flex items-center gap-2"><BarChart3 className="w-5 h-5 text-purple-400" /> تقدم الأداء</h3>
+          <div className="flex items-center justify-center gap-2 mb-4">
+            <BarChart3 className="w-5 h-5 text-purple-400" />
+            <h3 className="font-bold">تقدم الأداء</h3>
           </div>
           {stats?.recentScores && stats.recentScores.length > 0 ? (
             <div className="flex items-end gap-2 h-32">
@@ -118,7 +114,10 @@ export default function DashboardPage() {
         </motion.div>
 
         <motion.div variants={fadeUp} className="card-premium p-6">
-          <h3 className="font-bold flex items-center gap-2 mb-4"><Target className="w-5 h-5 text-emerald-400" /> حالتك الحالية</h3>
+          <div className="flex items-center justify-center gap-2 mb-4">
+            <Target className="w-5 h-5 text-emerald-400" />
+            <h3 className="font-bold">حالتك الحالية</h3>
+          </div>
           <div className="space-y-4">
             <div className="flex items-center justify-between">
               <span className="text-gray-400 text-sm">التصنيف</span>
@@ -142,17 +141,17 @@ export default function DashboardPage() {
 
       {/* ── AI Suggestion ────────────────────────────── */}
       <motion.div variants={fadeUp} className="card-premium p-6 border-purple-500/20">
-        <div className="flex items-start gap-4">
+        <div className="flex flex-col items-center gap-4">
           <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center shrink-0">
             <Sparkles className="w-5 h-5 text-white" />
           </div>
-          <div>
+          <div className="text-center">
             <h3 className="font-bold mb-1">نصيحة الذكاء الاصطناعي</h3>
             <p className="text-sm text-gray-400">
               بناءً على أدائك، ننصحك بالتركيز على أسئلة التناظر اللفظي والهندسة اليوم. 
               جرب جلسة تدريب سريعة على هذه المواضيع لتحسين نتيجتك.
             </p>
-            <Link href="/dashboard/practice" className="btn-primary text-xs mt-3 py-2">
+            <Link href="/dashboard/practice" className="btn-primary text-xs mt-3 py-2 mx-auto">
               ابدأ التدريب <ArrowLeft className="w-3.5 h-3.5" />
             </Link>
           </div>

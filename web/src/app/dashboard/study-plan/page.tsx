@@ -62,8 +62,8 @@ export default function StudyPlanPage() {
   }
 
   return (
-    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-10 text-right">
-      <div className="flex items-center justify-between">
+    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-10 text-center">
+      <div className="flex flex-col items-center gap-3">
         <div><h1 className="text-2xl font-bold">خطة الدراسة</h1><p className="text-gray-400 text-sm">خطة مخصصة بالذكاء الاصطناعي</p></div>
         <button onClick={handleGenerate} disabled={generating} className="btn-secondary text-sm">
           <RefreshCw className={`w-4 h-4 ${generating ? "animate-spin" : ""}`} /> تحديث
@@ -72,7 +72,7 @@ export default function StudyPlanPage() {
 
       {/* Progress */}
       <div className="card-premium p-4">
-        <div className="flex items-center justify-between mb-2">
+        <div className="flex items-center justify-center mb-2 gap-4">
           <span className="text-sm text-gray-400">التقدم الكلي</span>
           <span className="font-mono font-bold text-purple-400">{plan.progress?.adherenceRate || 0}%</span>
         </div>
@@ -81,7 +81,7 @@ export default function StudyPlanPage() {
       </div>
 
       {/* Week tabs */}
-      <div className="flex gap-2 overflow-x-auto pb-2">
+      <div className="flex gap-2 overflow-x-auto pb-2 justify-center">
         {plan.weeks?.map((_: any, i: number) => (
           <button key={i} onClick={() => setActiveWeek(i)}
             className={`px-4 py-2 rounded-xl text-sm whitespace-nowrap transition ${activeWeek === i ? "bg-purple-500/20 text-purple-400 border border-purple-500/30" : "bg-white/5 text-gray-400"}`}>
@@ -93,7 +93,7 @@ export default function StudyPlanPage() {
       {/* Days */}
       {plan.weeks?.[activeWeek]?.days?.map((day: any, di: number) => (
         <div key={di} className="card-premium p-5">
-          <div className="flex items-center gap-2 mb-4">
+          <div className="flex items-center justify-center gap-2 mb-4">
             <span className="text-sm font-bold">اليوم {day.dayNumber || di + 1}</span>
             {day.isRestDay && <span className="badge badge-green text-xs">يوم راحة 🌴</span>}
           </div>
